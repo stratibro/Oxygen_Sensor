@@ -1,21 +1,73 @@
-from numpy import log as ln
 import math
+import numpy as np
 
-#Calculate the partial pressure of oxygen in the blood 
-O2_concentration = 
-#mg/dL
-T = 25 + 273.15
-#Kelvin
-R = 8.314
-z = 4
-F = 96485
-#valence electrons
-atm = 0.1
-Molar_Mass = 31.9988
-Molarity = (O2_concentration/10)/Molar_Mass
-O2_Pressure = Molarity*atm
+# Constants
+R = 8.314  # J/mol*K, gas constant
+F = 96485  # C/mol, Faraday constant
+atm = 0.1  # atm, partial pressure of oxygen in blood
+MM_O2 = 31.9988  # g/mol, molar mass of oxygen
+T = 25 + 273.15  # K, temperature
+z = 4  # valence electrons
 
-#Calculate the potential difference between the Pt electrode and the Ag/Ag/Cl reference electrode
-E = ((R*T)/(z*F))*ln(O2_Pressure/1)
+# Calculate the molarity of oxygen in the blood
+O2_concentration = 20  # mg/dL
+O2_molarity = (O2_concentration / 10) / MM_O2
+
+# Calculate the partial pressure of oxygen in the blood
+O2_pressure = O2_molarity * atm
+
+# Calculate the potential difference between the Pt electrode and the Ag/Ag/Cl reference electrode
+E = ((R * T) / (z * F)) * np.log(O2_pressure / 1)
 E += 0.197
-print(round(E, 5), "volts")
+
+print(f"{round(E, 5)} volts")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import os
+os.system("clear")
+import time
+for _ in range(5):
+  print("Thinking.")
+  time.sleep(0.2)
+  os.system("clear")
+  print("Thinking..")
+  time.sleep(0.2)
+  os.system("clear")
+  print("Thinking...")
+  time.sleep(0.2)
+  os.system("clear")
+for _ in range(5):
+  print("Thinking really hard.")
+  time.sleep(0.2)
+  os.system("clear")
+  print("Thinking really hard..")
+  time.sleep(0.2)
+  os.system("clear")
+  print("Thinking really hard...")
+  time.sleep(0.2)
+  os.system("clear")
+print(f"{round(E, 5)} volts")
+
+
