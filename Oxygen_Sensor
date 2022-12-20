@@ -1,0 +1,21 @@
+from numpy import log as ln
+import math
+
+#Calculate the partial pressure of oxygen in the blood 
+O2_concentration = 
+#mg/dL
+T = 25 + 273.15
+#Kelvin
+R = 8.314
+z = 4
+F = 96485
+#valence electrons
+atm = 0.1
+Molar_Mass = 31.9988
+Molarity = (O2_concentration/10)/Molar_Mass
+O2_Pressure = Molarity*atm
+
+#Calculate the potential difference between the Pt electrode and the Ag/Ag/Cl reference electrode
+E = ((R*T)/(z*F))*ln(O2_Pressure/1)
+E += 0.197
+print(round(E, 5), "volts")
